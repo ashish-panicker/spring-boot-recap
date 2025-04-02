@@ -8,7 +8,15 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "product_details") // Create the table with the name product_details
-@Getter @Setter @AllArgsConstructor @NoArgsConstructor
+@NamedQueries({
+    @NamedQuery(
+            query = "SELECT p FROM Product p WHERE p.productId = :id and p.stock >= :q",
+            name = "Product.findIfProductIsInStock")
+})
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Product {
 
     @Id // Every entity class must have an @Id attribute
