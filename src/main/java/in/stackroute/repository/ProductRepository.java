@@ -11,6 +11,6 @@ public interface ProductRepository extends JpaRepository<Product, String> {
 
     Optional<Product> findByProductIdAndStockGreaterThan(String id, int stock);
 
-    @Query("SELECT p FROM Product p WHERE p.productId = :id and p.stock >= :q")
+    @Query(name = "Product.findIfProductIsInStock")
     Optional<Product> findProductInStock(@Param("id") String id, @Param("q") int quantity);
 }
