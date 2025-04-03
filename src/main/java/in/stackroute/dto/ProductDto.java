@@ -18,9 +18,9 @@ public class ProductDto {
     @NotBlank(message = "Product name cannot be left blank.")
     private String productName;
     // Cannot be 0
-    @Min(value = 0, message = "Price cannot be zero.")
+    @Min(value = 1, message = "Price cannot be lessa than 1 rupee.")
     private double price;
     // Cannot be zero
-    @Min(value = 0, message = "Stock cannot be zero.")
+    @Min(value = 1, message = "Stock cannot be less than 1 unit.")
     private int stock;
 }
