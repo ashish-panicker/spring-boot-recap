@@ -27,4 +27,9 @@ public class ProductServiceImpl implements ProductService {
     public Optional<Product> findIfProductIsInStock(String id, int quantity) {
         return productRepository.findProductInStock(id, quantity);
     }
+
+    @Override
+    public Optional<Product> findById(String pid) {
+        return productRepository.findById(pid);
+    }
 }

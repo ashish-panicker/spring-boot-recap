@@ -9,4 +9,6 @@ public interface ProductService {
     Product save(Product p);
     Product update(Product p);
     Optional<Product> findIfProductIsInStock(String id, int quantity);
+
+    Optional<Product> findById(String pid);
 }
