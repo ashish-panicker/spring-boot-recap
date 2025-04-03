@@ -1,10 +1,7 @@
 package in.stackroute.domain;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Table(name = "product_details") // Create the table with the name product_details
@@ -17,6 +14,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Product {
 
     @Id // Every entity class must have an @Id attribute
@@ -32,4 +30,11 @@ public class Product {
 
     @Column(nullable = false)
     private int stock;
+
+
+    public Product(String productName, double price, int stock) {
+        this.productName = productName;
+        this.price = price;
+        this.stock = stock;
+    }
 }
